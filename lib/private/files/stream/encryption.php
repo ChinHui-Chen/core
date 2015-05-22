@@ -418,7 +418,7 @@ class Encryption extends Wrapper {
 			// If so then update the encrypted filesize
 			// Note that the unencrypted pointer and filesize are NOT yet updated when flush() is called
 			// We recalculate the encrypted filesize as we do not know the context of calling flush()
-			$completeBlocksInFile=(int)floor($this->unencryptedSize/$this->unencryptedBlockSize)
+			$completeBlocksInFile=(int)floor($this->unencryptedSize/$this->unencryptedBlockSize);
 			if ($completeBlocksInFile === (int)floor($this->position/$this->unencryptedBlockSize)) {
 				$this->size = $this->util->getBlockSize() * $completeBlocksInFile;
 				$this->size += $bytesWritten;
